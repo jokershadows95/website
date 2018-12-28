@@ -1,0 +1,52 @@
+﻿footer {
+
+    position: static;
+    bottom: 0;
+    background: rgba(6, 65, 114,.5);
+    width: 100%;
+    height: auto;
+} 
+.ourdate {
+    margin: 0;
+    padding: 0;
+}
+.ourdate p {
+    padding: 5px;
+    font-family: 'Bradley Hand ITC';
+    font-size: 18px;
+    font-weight: bold;
+}
+.hour {
+    margin-top: -15px;
+    position: relative;
+    left: 35%;
+    width: 50%;
+    top: 0;
+}
+.hour p {
+        
+        padding: 5px;
+        font-family: 'Freestyle Script';
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .hour .Days {
+        margin-top: -34px;
+        font-family: Arial;
+        font-size: 12px;
+    }
+    .hour .Days span {
+        font-weight: 200;
+        font-family: 'MS Gothic';
+    }
+.littlelogo img {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    width: 35%;
+    height: 100%;
+}
+.break {
+    height: 150px;
+    width: 100%;
+}

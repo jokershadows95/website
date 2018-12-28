@@ -1,0 +1,30 @@
+.sendactive {
+  background: -webkit-gradient(linear, left top, right bottom, from(#8aff05), to(#015413));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 48px;
+  display: initial; /* reset Font Awesome's display:inline-block*/
+}
+
+.senddisabled {
+  background: -webkit-gradient(linear, left top, right bottom, from(#f14747), to(#6a1900));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 48px;
+  display: initial; /* reset Font Awesome's display:inline-block*/
+}
+
+.previewadding {
+  width: 125px;
+}
+
+.previnfo {
+  height: 115px;
+  overflow: hidden;
+}
+
+.previnfo {
+  overflow-y: auto;
+}
