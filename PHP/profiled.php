@@ -267,18 +267,24 @@ else {
 							      <td>Mark</td>
 							      <td>Otto</td>
 							      <td>@mdo</td>
+										<td></td>
+										<td></td>
 							    </tr>
 							    <tr>
 							      <th scope="row">2</th>
 							      <td>Jacob</td>
 							      <td>Thornton</td>
 							      <td>@fat</td>
+										<td></td>
+										<td></td>
 							    </tr>
 							    <tr>
 							      <th scope="row">3</th>
 							      <td>Larry</td>
 							      <td>the Bird</td>
 							      <td>@twitter</td>
+										<td></td>
+										<td></td>
 							    </tr>
 					  </tbody>
 					</table>
