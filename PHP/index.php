@@ -37,14 +37,17 @@ require 'menu.php';
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" media="all">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-     <script async src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script async src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <!--Angularjs -->
+      <script async src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+      <script async src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js'></script>
     <script src="script/modal.js"></script>
     <script src="script/dark.js"></script>
     <script async src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="ng-file-upload-all.js"></script>
     <script src="scripts/chconn.js"></script>
+    <script src="scripts/getinfo.js"></script>
     <!--<script src="script/ajax.js"></script>-->
 </head>
 <style>

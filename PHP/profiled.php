@@ -35,7 +35,7 @@ else {
 		<link href="wd.css" rel="stylesheet" />
 		<link href="lookpd.css" rel="stylesheet" />
 </head>
-<body>
+<body ng-app='myDataDisplayInfo'>
 <style>
     .infos {
         background-color: dimgrey;
@@ -245,8 +245,7 @@ else {
     </div>';
     echo '</div></div></div> <br/>
 
-
-		<div class="jumbotron jumbotron-fluid lookpd">
+		<div class="jumbotron jumbotron-fluid lookpd" ng-controller="diCtrl">
 			<div class="container">
 				<h1 class="display-4">Nowe podania do rozpatrzenia</h1>
 				<div class="table-responsive">
@@ -257,34 +256,18 @@ else {
 							      <th scope="col">Name</th>
 							      <th scope="col">Surname</th>
 							      <th scope="col">Date</th>
-										<th scope="col">Awans</th>
+										<th scope="col">Action</th>
 										<th scope="col">Opinion</th>
 							    </tr>
 							  </thead>
 							  <tbody>
-							    <tr>
-							      <th scope="row">1</th>
-							      <td>Mark</td>
-							      <td>Otto</td>
-							      <td>@mdo</td>
-										<td></td>
-										<td></td>
-							    </tr>
-							    <tr>
-							      <th scope="row">2</th>
-							      <td>Jacob</td>
-							      <td>Thornton</td>
-							      <td>@fat</td>
-										<td></td>
-										<td></td>
-							    </tr>
-							    <tr>
-							      <th scope="row">3</th>
-							      <td>Larry</td>
-							      <td>the Bird</td>
-							      <td>@twitter</td>
-										<td></td>
-										<td></td>
+							    <tr ng-repeat="x in xusers">
+							      <th scope="row">{{x.numb}}</th>
+							      <td>{{x.name}}</td>
+							      <td>{{x.surname}}</td>
+							      <td>{x.date}}</td>
+										<td>{{x.action}}</td>
+										<td><button class="uncover button" data-toggle="tooltip" data-placement="top" title="Accept"><i class="material-icons cbans">done</i></button><button class="uncover button" data-toggle="tooltip" data-placement="top" title="Discard"><i class="material-icons bans">close</i></button></td>
 							    </tr>
 					  </tbody>
 					</table>
@@ -447,7 +430,19 @@ else {
 
    </div>
  </div>
+ <script>
+ var fetch = angular.module("myDataDisplayInfo", []);
 
+ fetch.controller("diCtrl", ["$scope", "$http", function ($scope, $http) {
+ $http({
+  method: "get",
+  url: "http://denzs.cba.pl/getinfo.php"
+ }).then(function successCallback(response) {
+  // Store response data
+  $scope.xusers = response.data;
+ });
+ }]);
+ </script>
     </body>
-	<? } ?>
+	<? }?>
 </html>
