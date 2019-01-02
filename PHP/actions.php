@@ -304,7 +304,7 @@ if ($action != null) {
         case 9:
                 /* Logowanie */
                 $login = htmlspecialchars(mysql_real_escape_string($_POST['usernick']));
-                $pass = mysql_real_escape_string($_POST['userpassword']);
+                $pass = htmlspecialchars(mysql_real_escape_string($_POST['userpassword']));
                 $currentdate = date("Y-m-d");
                 $currentyear = date("Y");
                 // Sprawdź, czy wszystkie pola zostały uzupełnione
@@ -645,6 +645,88 @@ if ($action != null) {
                   }
 
             break;
-    }
+
+          case 18:
+          /* Fast Connect To Site */
+          $FCTS = htmlspecialchars(mysql_real_escape_string($_POST['userFCID']));
+          if (!$FCTS or empty($FCTS)) {
+              $infoFC = "Wypełnił pole z FCTS (Szybkie Logowanie Do Strony)!";
+              die (setcookie('info', $infoFC, time()+15));
+              echo "
+                          <meta http-equiv='refresh' content='0' />";
+                          header("Location: index.php");
+          }
+
+          // Sprawdź, czy użytkownik o podanym loginie i haśle isnieje w bazie danych
+          $userExists = mysql_fetch_array(mysql_query("SELECT COUNT(*) FROM workers WHERE key_id = '$FCTS'"));
+          $bans = mysql_fetch_array(mysql_query("SELECT ban,bandate,banreason FROM workers WHERE key_id = '$FCTS'"));
+
+        if ($userExists[0] == 0) {
+              // Użytkownik nie istnieje w bazie
+              $warningFC = "Użytkownik o podanym FCID nie istnieje";
+              setcookie('warning', $warningFC, time()+15);
+              echo "
+                          <meta http-equiv='refresh' content='0' />";
+          }
+          //Easter Egg
+          if($currentdate == "".$currentyear."-11-05") {
+            $easter = "Easter Egg 🐱‍👤";
+            setcookie('info',$easter,time()+25);
+          }
+          if($currentdate == "".$currentyear."-01-13" && $login =="HeadAdmin") {
+            $bday = "Wszystkiego Najlepszego🐱‍👤";
+            setcookie('info',$bday,time()+25);
+          }
+          // Użytkownik jest zbanowany
+        /*  if($bansFC['ban']!=null || $bansFC[1] >= $currentdate) {
+            //$banish = (strtotime($bans[2]) - strtotime($currentdate)) / (60*60*24);
+            if($bansFC[1]!="0000-00-00") {
+              $future = strtotime('21 July 2012'); //Future date.
+            $timefromdb = $bansFC[0];
+            $timeleft = $future-$timefromdb;
+            $banishFC = round((($timeleft/24)/60)/60);
+            //echo $daysleft;
+            $infobanFC = "Zostaleś zbanowany! <br /> Do dnia: <b> ".$bansFC[1]." </b> <br/> Powód bana: <b> ".$bansFC[2]."</b><br/>Kara wygaśnie za: <b> ".$banishFC."</b>";}
+            else {
+              $infobanFC = "Zostaleś zbanowany! <br /> Na okres nieokreślony - <b> PERM BAN </b> <br/> Powód bana: <b> ".$bansFC[2]."</b><br/>Kara wygaśnie za: <b> ".$banishFC."</b>";
+            }
+            setcookie('error', $infobanFC, time()+15);
+
+          }
+          else {
+            // Użytkownik po banie - czyszczenie bazy
+              $offbans =  mysql_fetch_array(mysql_query("UPDATE workers SET `ban` = '', `bandate` = '' WHERE nick = '$login' AND haslo = '$pass'"));
+              // Użytkownik istnieje i nie jest zbanowany*/
+              $login = mysql_fetch_array(mysql_query("SELECT nick FROM workers WHERE key_id = '$FCTS'"));
+              $pass = mysql_fetch_array(mysql_query("SELECT haslo FROM workers WHERE key_id = '$FCTS'"));
+              $user = user::getData($login, $pass); // Pobierz dane użytknika do tablicy i zapisz ją do zmiennej $user
+
+              // Przypisz pobrane dane do sesji
+              $name_log =$user['imie']." ".$user['nazwisko'];
+              setcookie('name',$name_log, time()+420000);
+          $id = mysql_real_escape_string(htmlspecialchars($user['id']));
+          $ranga = mysql_real_escape_string(htmlspecialchars($user['ranga']));
+          $_SESSION['id'] = $id;
+          $_SESSION['login'] = $login;
+          $_SESSION['userinfo'] = $name_log;
+              $_SESSION['pass'] = $pass;
+          $_SESSION['ranga'] = $ranga;
+          $_SESSION['protect'] = true;
+              $_SESSION['infoa'] = "Zostałeś zalogowany jako: <b>".$_SESSION['userinfo']."</b>";
+          $online = 1;
+          $error1 = "Wystąpił błąd w zapytaniu! <br/> Spróbuj ponownie.";
+
+          mysql_query("UPDATE `workers` SET `online` = '$online' WHERE `workers`.`id` = '$id'")
+                  or die (setcookie('error', $error1, time()+15));
+          echo "
+                          <meta http-equiv='refresh' content='0; url=index.php?site=1?name=".$_SESSION['userinfo']."&page=1'/>";
+          //header("Location: welcomd.php");
+
+
+
+
+
+          break;
+        }
 }
 ?>

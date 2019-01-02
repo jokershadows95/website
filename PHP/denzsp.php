@@ -22,6 +22,7 @@ include 'errorlog.php';
     <link href="login.css" rel="stylesheet" media="all">
     <link href="forgot.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" media="all">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
   /*  var myVar;
 
@@ -98,7 +99,7 @@ include 'errorlog.php';
         isOnline();*/
     </script>
 </head>
-<body ng-app="Conn">
+<body>
     <header>
         <style>
             .conteiner {
@@ -153,7 +154,7 @@ include 'errorlog.php';
 
     </header>
     <div class="LoginForm">
-        <p id="FCTS" class="FCTS disabled" style="color: navy; float:right;right:0;cursor:pointer" data-toggle="tooltip" data-placement="bottom" title="FC - [WIP]"><i class="material-icons">shutter_speed</i></p>
+        <p id="FCTS" class="FCTS" style="color: navy; float:right;right:0;cursor:pointer" data-toggle="tooltip" data-placement="bottom" title="FC - [WIP]"><i class="material-icons">shutter_speed</i></p>
         <img src="user.png" title="Login User" alt="Login User" class="user"/>
         <h2>Login</h2>
         <form action="" method="post">
@@ -165,9 +166,11 @@ include 'errorlog.php';
               <input type="hidden" name="action" value="9" />
               <input type="submit" value="Log In" />
               <a href="#" onclick="openNav()">Forget Password?</a>
-                <div ng-controller="ConnController" style="float: right; right: 0;">
-                    <span data-toggle="tooltip" data-placement="top" title="Network Connection: Connected" ng-show="online"><i class="material-icons" style="color:#007c09">network_check</i></span>
-                    <span data-toggle="tooltip" data-placement="top" title="Network Connection: Disconnected" ng-show="!online"><i class="material-icons" style="color:#980000">network_check</i></span>
+                <div  ng-app="Conn" style="float: right; right: 0;">
+                  <div ng-controller="ConnController" >
+                      <span data-toggle="tooltip" data-placement="top" title="Network Connection: Connected" ng-show="online"><i class="material-icons" style="color:#007c09">network_check</i></span>
+                      <span data-toggle="tooltip" data-placement="top" title="Network Connection: Disconnected" ng-show="!online"><i class="material-icons" style="color:#980000">network_check</i></span>
+                  </div>
                 </div>
                   <!--<span id="networkinfo" data-toggle="tooltip" data-placement="top" title="Network Connection"><i class="material-icons" style="color:#8f7c18" >network_check</i></span></p>-->
             </div>
@@ -199,7 +202,7 @@ include 'errorlog.php';
                     <input type="password" name="resetusernewpasswordrepeated" id="resetusernewpasswordrepeated" placeholder="Enter Your New Password Again"/>
                     <input type="hidden" name="action" value="10" />
                     <input type="submit" name="Reset_Password" value="Reset" />
-                </font>
+                </form>
             </div>
         </div>
     </div>
@@ -214,17 +217,18 @@ include 'errorlog.php';
         </script>
         <script>
         $(document).ready(function () {
-            $("#FCTS.FCTS").click(
+          /*  $("#FCTS.FCTS").click(
               function () {
-                $(".FCTS").html('<i class="material-icons">calendar_view_day</i>');
+                $(".FCTS").html('<i class="material-icons" id="BacktoNCTS">calendar_view_day</i>');
                 $("#FCTS.FCTS").addClass("back").removeClass("FCTS");
-                $("#NCTS").html('<p>Fast Connection ID:</p><input type="text" name="userFCID" id="userFCID" placeholder="Enter Your FCID" required/><input type="hidden" name="action" value="9" /><input type="submit" value="Log In" />');
+                $("#NCTS").html('<p>Fast Connection ID:</p><input type="password" name="userFCID" id="userFCID" placeholder="Enter Your FCID" required/><input type="hidden" name="action" value="18" /><input type="submit" value="Log In" />');
               });
 
-          /*  $("#FCTS.back").click(
+            $("#BacktoNCTS").click(
               function () {
                 $(".back").html('<i class="material-icons">shutter_speed</i>');
                 $("#FCTS.back").removeClass("back").addClass("FCTS");
+                $("#NCTS").html('<p>Nick</p><input type="text" name="usernick" id="usernick" placeholder="Enter Nick" required/><p>Password</p><input type="password" name="userpassword" id="userpasword" placeholder="Enter Password" required/><input type="hidden" name="action" value="9" /><input type="submit" value="Log In" /><a href="#" onclick="openNav()">Forget Password?</a><div  ng-app="Conn" style="float: right; right: 0;"><div ng-controller="ConnController" ><span data-toggle="tooltip" data-placement="top" title="Network Connection: Connected" ng-show="online"><i class="material-icons" style="color:#007c09">network_check</i></span><span data-toggle="tooltip" data-placement="top" title="Network Connection: Disconnected" ng-show="!online"><i class="material-icons" style="color:#980000">network_check</i></span></div></div>');
               });*/
 
       });

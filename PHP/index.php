@@ -47,7 +47,6 @@ require 'menu.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="ng-file-upload-all.js"></script>
     <script src="scripts/chconn.js"></script>
-    <script src="scripts/getinfo.js"></script>
     <!--<script src="script/ajax.js"></script>-->
 </head>
 <style>
