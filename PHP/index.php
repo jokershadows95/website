@@ -43,6 +43,7 @@ require 'menu.php';
       <script async src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
       <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js'></script>
     <script src="script/modal.js"></script>
+    <script src="script/toast.js"></script>
     <script src="script/dark.js"></script>
     <script async src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -67,6 +68,15 @@ require 'menu.php';
  //body//
  include ($menu);
  //footer//
+ echo '
+
+
+ 								<div id="toast">
+ 				 				 <div id="img">
+ 				 					 <i class="material-icons" id="iconstoast">check_circle_outline</i>
+ 				 				 </div>
+ 				 				 <div id="desc">Success loading your profile...</div>
+ 				 			 </div>';
 ?>
 </body>
 </html>

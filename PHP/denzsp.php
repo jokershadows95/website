@@ -164,7 +164,7 @@ include 'errorlog.php';
               <p>Password</p>
               <input type="password" name="userpassword" id="userpasword" placeholder="Enter Password" required/>
               <input type="hidden" name="action" value="9" />
-              <input type="submit" value="Log In" />
+              <input type="submit" value="Log In" id="loginsform"/>
               <a href="#" onclick="openNav()">Forget Password?</a>
                 <div  ng-app="Conn" style="float: right; right: 0;">
                   <div ng-controller="ConnController" >

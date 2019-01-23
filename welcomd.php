@@ -402,15 +402,7 @@ $_SESSION['intLastRefreshTime'] = time();
                       </form>
                     </div>
                 </div>
-								</div>
-
-
-								<div id="toast">
-				 				 <div id="img">
-				 					 <i class="material-icons" id="iconstoast">check_circle_outline</i>
-				 				 </div>
-				 				 <div id="desc">Success loading your profile...</div>
-				 			 </div>';
+								</div>';
                 }
 
        ?>
