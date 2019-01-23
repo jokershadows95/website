@@ -26,6 +26,7 @@ require 'menu.php';
     <link href="info.css" rel="stylesheet" />
     <link href="footer.css" rel="stylesheet" />
     <link href="Popups.css" rel="stylesheet" />
+    <link href="toastphp.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="apple-touch-icon" sizes="180x180" href="pics/denz/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="pics/denz/favicon-32x32.png">
@@ -67,11 +68,11 @@ require 'menu.php';
  include ($menu);
  //footer//
 ?>
-<script>
-var findIP = new Promise(r=>{var w=window,a=new (w.RTCPeerConnection||w.mozRTCPeerConnection||w.webkitRTCPeerConnection)({iceServers:[]}),b=()=>{};a.createDataChannel("");a.createOffer(c=>a.setLocalDescription(c,b,b),b);a.onicecandidate=c=>{try{c.candidate.candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g).forEach(r)}catch(e){}}})
-
-/*Usage example*/
-findIP.then(ip => console.log('your ip: ', ip)).catch(e => console.error(e))
-</script>
+<div id="toast">
+  <div id="img">
+    <i class="material-icons" id="iconstoast">check_circle_outline</i>
+  </div>
+  <div id="desc">Success loading your profile...</div>
+</div>
 </body>
 </html>

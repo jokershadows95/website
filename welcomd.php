@@ -415,6 +415,10 @@ $_SESSION['intLastRefreshTime'] = time();
             $("#Adds").hide();
         });
       });
+			var z = document.getElementById("toast");
+        z.className = "show";
+        setTimeout(function(){ z.className = z.className.replace("show", ""); }, 5000);
+    }
     </script>
    </body>
 </html>
