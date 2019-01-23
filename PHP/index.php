@@ -68,11 +68,5 @@ require 'menu.php';
  include ($menu);
  //footer//
 ?>
-<div id="toast">
-  <div id="img">
-    <i class="material-icons" id="iconstoast">check_circle_outline</i>
-  </div>
-  <div id="desc">Success loading your profile...</div>
-</div>
 </body>
 </html>

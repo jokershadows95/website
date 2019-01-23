@@ -402,10 +402,19 @@ $_SESSION['intLastRefreshTime'] = time();
                       </form>
                     </div>
                 </div>
-								</div>';
+								</div>
+
+
+								<div id="toast">
+				 				 <div id="img">
+				 					 <i class="material-icons" id="iconstoast">check_circle_outline</i>
+				 				 </div>
+				 				 <div id="desc">Success loading your profile...</div>
+				 			 </div>';
                 }
 
        ?>
+
           <script>
     $(document).ready(function () {
         $("#Addbutton").click(function () {
@@ -414,11 +423,10 @@ $_SESSION['intLastRefreshTime'] = time();
         $("#closeAdding").click(function () {
             $("#Adds").hide();
         });
+				var x = document.getElementById("toast")
+				x.className = "show";
+				setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
       });
-			var z = document.getElementById("toast");
-        z.className = "show";
-        setTimeout(function(){ z.className = z.className.replace("show", ""); }, 5000);
-    }
     </script>
    </body>
 </html>
