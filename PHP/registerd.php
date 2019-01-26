@@ -8,7 +8,7 @@ if (!user::isLogged()) {
 	header("Location: index.php");
 }
 else {
-		$id2 = $_SESSION['id'];
+		$id = $_SESSION['id'];
 if(isset($_SESSION['intLastRefreshTime']))
 {
 	if(($_SESSION['intLastRefreshTime']+$intTimeoutSeconds)<time())
@@ -19,6 +19,7 @@ if(isset($_SESSION['intLastRefreshTime']))
 	}
 }
 $_SESSION['intLastRefreshTime'] = time();
+$profile = user::getDataById ($id);
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">

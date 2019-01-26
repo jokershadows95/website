@@ -1,5 +1,5 @@
 <?php //Menu
- require 'modal.php';
+ //require 'modal.php';
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
